@@ -1,0 +1,4 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/OpenClassrooms-Student-Center/dev-react-P12.git
+	ignore = all

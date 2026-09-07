@@ -1,0 +1,7 @@
+blank_issues_enabled: true
+issue_templates:
+  - name: "Feature Request"
+    description: "New feature or improvement."
+    title: ""
+    labels: ["enhancement"]
+    body: "./ISSUE_TEMPLATE/feature_request.md"
