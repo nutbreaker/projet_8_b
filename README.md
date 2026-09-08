@@ -1,6 +1,6 @@
 # Kasa
 
-![Kasa logo](/frontend/public/assets/kasa.svg)
+![Kasa logo](/frontend/public/kasa-logo.svg)
 
 Kasa, a platform for renting apartments and houses directly from private owners.
 With more than 500 new listings added every day, Kasa is one of the market leaders in France.
