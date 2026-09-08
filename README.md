@@ -66,11 +66,51 @@ N/A
 
 #### A. Backend Setup
 
-N/A
+1. Open the `backend` directory
+
+   ```bash
+   cd backend
+   ```
+
+2. Install the dependencies
+
+   ```bash
+   npm install
+   ```
+
+3. Start the backend developpement server
+
+   ```bash
+   PORT=8000 npm start
+   ```
+
+   The `backend` API will run at http://localhost:8000
+
+_There is an alternative which allows to run the `backend` from the project root folder: `PORT=8000 npm --prefix backend/ start`_
 
 #### B. Frontend Setup
 
-N/A
+1. Open the `frontend` directory
+
+   ```bash
+   cd frontend
+   ```
+
+2. Install the dependencies
+
+   ```bash
+   npm install
+   ```
+
+3. Start the backend developpement server
+
+   ```bash
+   npm run dev
+   ```
+
+   The `frontend` application will be available at http://localhost:3000
+
+_There is an alternative which allows to run the `frontend` from the project root folder: `npm --prefix frontend/ run dev`_
 
 ## Project Architecture
 
