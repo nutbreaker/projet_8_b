@@ -1,0 +1,225 @@
+.header {
+    margin-top: 4rem;
+
+    ul {
+        display: flex;
+        gap: 2.8rem;
+
+        list-style: none;
+    }
+
+    a {
+        font-family: var(--font-inter);
+        font-size: var(--size-s);
+        font-weight: var(--font-weight-400);
+
+        text-decoration: none;
+    }
+}
+
+/* 
+ -------------------------------------------------------------------------------
+ Desktop -----------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+*/
+.header-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: min(100%, 78.2rem);
+
+    margin: auto;
+    padding: .8rem 10rem;
+
+    background-color: var(--white);
+    border-radius: var(--size-2xs);
+
+    box-shadow: 0 .4rem .4rem 0 var(--darkest-gray);
+}
+
+.main-menu {
+    a {
+        color: var(--black);
+
+        &:hover {
+            color: var(--main-red);
+            /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/-webkit-text-stroke */
+            -webkit-text-stroke: .1rem var(--main-red);
+        }
+    }
+}
+
+.secondary-menu {
+    a {
+        color: var(--main-red);
+    }
+
+    .favorites-icon-outline,
+    .message-icon {
+        fill: var(--main-red);
+        stroke: var(--main-red);
+    }
+
+    .favorites-icon-inside {
+        fill: var(--white);
+    }
+}
+
+.menu-items-group {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    a {
+        display: flex;
+    }
+}
+
+/* 
+ -------------------------------------------------------------------------------
+ Mobile ------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+*/
+.header-mobile {
+    display: none;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4rem 0;
+
+    flex-wrap: wrap;
+    height: 8.5rem;
+    overflow-y: hidden;
+
+    background-color: var(--white);
+    padding: 1.6rem;
+
+    transition: height .25s ease;
+
+    h1 {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-self: start;
+
+        a {
+            display: block;
+        }
+    }
+
+    button {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        justify-self: end;
+
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+
+        svg {
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+    }
+
+    nav {
+        grid-column: 1/-1;
+        grid-row: 2/-1;
+        grid-row: 2/3;
+    }
+
+    a:last-child {
+        grid-column: 1/-1;
+        grid-row: 3/-1;
+
+        height: fit-content;
+    }
+}
+
+.header-mobile--open {
+    height: 100vh;
+}
+
+.header-logo {
+    display: inline-flex;
+}
+
+.mobile-menu {
+    display: flex;
+    flex-basis: 100%;
+
+    margin-top: 4rem;
+
+    opacity: 0;
+    transition: opacity .25s ease;
+
+    ul {
+        gap: 0;
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    li {
+        border-bottom: 1px solid var(--light-gray);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:first-child a {
+            padding-top: 0;
+        }
+
+        &:last-child a {
+            padding-bottom: 0;
+        }
+    }
+
+    a {
+        display: block;
+        padding-block: 2.8rem;
+
+        color: var(--black);
+        font-size: var(--size-l);
+    }
+}
+
+.header-mobile--open .mobile-menu {
+    opacity: 1;
+}
+
+a.mobile-menu__add-property {
+    width: fit-content;
+
+    padding: .8rem 3.2rem;
+
+    color: var(--white);
+    font-size: var(--size-s);
+    font-weight: var(--font-weight-500);
+
+    background-color: var(--main-red);
+    border-radius: var(--size-2xs);
+}
+
+@media (max-width:576px) {
+    .header {
+        margin-top: 0;
+    }
+
+    .header-mobile {
+        display: grid;
+    }
+
+    .header-desktop {
+        display: none;
+    }
+}
+
+@media (max-width:768px) {
+    .header-desktop {
+        justify-content: space-around;
+        padding-inline: 0;
+    }
+}
