@@ -1,4 +1,13 @@
+import { Inter } from "next/font/google";
+
 import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"]
+});
+
 
 export const metadata = {
   title: " Kasa, une entreprise de location d'appartements et de maisons entre particuliers.",
@@ -7,8 +16,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
-      <body>{children}</body>
+    <html lang="fr" className={`${inter.variable}`}>
+      <body>
+        <main>
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
