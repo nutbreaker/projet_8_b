@@ -11,7 +11,7 @@
 
     color: var(--dark-gray);
     font-family: var(--font-inter);
-    font-size: var(--font-size-xs);
+    font-size: var(--size-xs);
     font-weight: var(--font-weight-500);
 
     background-color: var(--white);
