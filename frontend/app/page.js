@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <div className={styles.logo}>
             <Image
-              className={styles.logo}
               src="/kasa-logo.svg"
               alt="Kasa logo"
               width={350}

@@ -2,5 +2,5 @@
   display: flex;
   place-items: center;
   place-content: center;
-  height: 100vh;
+  flex-grow: 1;
 }

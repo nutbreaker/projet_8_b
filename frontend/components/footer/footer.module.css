@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+
+    max-width: 144rem;
+    height: 6.9rem;
+
+    margin: auto;
+    padding: .8rem 4rem;
+
+    color: var(--dark-gray);
+    font-family: var(--font-inter);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-500);
+
+    background-color: var(--white);
+}
