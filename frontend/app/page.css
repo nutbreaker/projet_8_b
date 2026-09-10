@@ -28,6 +28,12 @@
   }
 }
 
+.property-listing {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 35.5rem));
+  gap: 2.4rem;
+}
+
 .how-it-works {
   display: flex;
   flex-direction: column;
@@ -90,6 +96,11 @@
 }
 
 @media (max-width : 768px) {
+  .property-listing {
+    grid-template-columns: repeat(2, minmax(0, 35.5rem));
+    gap: 2.4rem 1.6rem;
+  }
+
   .how-it-works {
     padding-inline: .8rem;
 
@@ -106,5 +117,11 @@
     div {
       width: 100%;
     }
+  }
+}
+
+@media (max-width:576px) {
+  .property-listing {
+    grid-template-columns: 1fr;
   }
 }

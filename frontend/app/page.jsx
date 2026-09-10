@@ -1,7 +1,11 @@
 import Image from "next/image";
 import "./page.css";
+import { getProperties } from "@/services/properties-service";
+import PropertyCard from "@/components/property-card/property-card";
 
-export default function Home() {
+export default async function Home() {
+  const properties = await getProperties();
+
   return (
     <div className="container">
       <header className="hero">
@@ -14,7 +18,10 @@ export default function Home() {
       </header>
 
       <section className="property-listing">
-            Property list
+        {
+          Array.isArray(properties) &&
+          properties.map(property => <PropertyCard key={property.id} property={property} />)
+        }
       </section>
 
       <section className="how-it-works">
