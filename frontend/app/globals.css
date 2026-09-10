@@ -66,3 +66,19 @@ main {
   display: flex;
   flex-grow: 1;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  width: min(100%, 115rem);
+
+  margin: 0 auto;
+}
+
+@media (max-width : 768px) {
+  .container {
+    padding-inline: 1.6rem;
+  }
+}
