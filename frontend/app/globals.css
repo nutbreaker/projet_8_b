@@ -72,7 +72,7 @@ main {
   flex-direction: column;
   gap: 4rem;
 
-  width: min(100%, 115rem);
+  width: min(100%, 111.5rem);
 
   margin: 0 auto;
 }
