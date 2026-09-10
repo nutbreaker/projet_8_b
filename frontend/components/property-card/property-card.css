@@ -1,0 +1,63 @@
+.property-card {
+    display: inline-block;
+
+    text-decoration: none;
+
+    max-width: 35.5rem;
+
+    figure {
+        width: fit-content;
+
+        background-color: var(--white);
+        border-radius: 1rem;
+    }
+
+    img {
+        width: 100%;
+
+        object-fit: cover;
+
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    figcaption {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+
+        height: 17.6rem;
+
+
+        padding-inline: 2.4rem;
+        padding-block: 1.6rem 2.4rem;
+    }
+
+    h3 {
+        color: var(--black);
+        font-size: var(--size-m);
+        font-weight: var(--font-weight-500);
+    }
+
+    address {
+        color: var(--dark-gray);
+        font: inherit;
+    }
+
+    footer {
+        margin-top: auto;
+
+        color: var(--dark-gray);
+    }
+
+    b {
+        color: var(--black);
+        font-weight: var(--font-weight-500);
+    }
+}
+
+
+@media (max-width:576px) {
+.property-card {
+    max-width: 100%;
+  }
+}
