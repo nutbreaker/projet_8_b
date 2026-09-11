@@ -1,0 +1,27 @@
+.button {
+    padding: 1.1rem;
+
+    color: var(--white);
+    font-weight: var(--font-weigth-500);
+
+    border: none;
+    border-radius: .5rem;
+    background-color: var(--main-red);
+
+    cursor: pointer;
+    transition: background-color .25s ease;
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--dark-orange);
+    }
+
+    &:disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+
+        color: var(--dark-gray);
+
+        background-color: var(--light-gray);
+    }
+}
