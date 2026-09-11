@@ -66,6 +66,8 @@ body {
 main {
   display: flex;
   flex-grow: 1;
+
+  margin-inline: 1.6rem;
 }
 
 .container {
@@ -79,6 +81,10 @@ main {
 }
 
 @media (max-width : 768px) {
+  main {
+    margin-inline: 0;
+  }
+
   .container {
     padding-inline: 1.6rem;
   }

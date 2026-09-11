@@ -1,5 +1,6 @@
 .header {
     margin-top: 4rem;
+    margin-inline: 1.6rem;
 
     ul {
         display: flex;
@@ -205,6 +206,7 @@ a.mobile-menu__add-property {
 
 @media (max-width:768px) {
     .header {
+        margin-inline: 0;
         padding-inline: 1.6rem;
     }
 
