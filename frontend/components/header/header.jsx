@@ -26,7 +26,7 @@ export default function Header() {
                 <nav className="main-menu" aria-label="Menu principal">
                     <ul>
                         <li><Link href="/">Accueil</Link></li>
-                        <li><Link href="/about">A propos</Link></li>
+                        <li><Link href="/a-propos">A propos</Link></li>
                     </ul>
                 </nav>
                 <h1>
@@ -75,7 +75,7 @@ export default function Header() {
                 >
                     <ul>
                         <li><Link href="/">Accueil</Link></li>
-                        <li><Link href="/about">A propos</Link></li>
+                        <li><Link href="/a-propos">A propos</Link></li>
                         <li><Link href="/chat">Messagerie</Link></li>
                         <li><Link href="/favorites">Favoris</Link></li>
                     </ul>
