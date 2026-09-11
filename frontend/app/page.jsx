@@ -1,21 +1,27 @@
-import Image from "next/image";
-import "./page.css";
+import Hero from "@/components/hero/hero";
+
 import { getProperties } from "@/services/properties-service";
 import PropertyCard from "@/components/property-card/property-card";
+
+import "./page.css";
 
 export default async function Home() {
   const properties = await getProperties();
 
   return (
     <div className="container">
-      <header className="hero">
-        <div className="hero-content">
-          <h2>Chez vous, partout et ailleurs</h2>
-          <p>Avec Kasa, vivez des séjours uniques dans des hébergements chaleureux, sélectionnés avec soin par nos hôtes.</p>
-        </div>
 
-        <Image src="/image/hero.jpg" alt="johannes-sejer-Xn3vcIpPi1E-unsplash 1" width={1115} height={458} />
-      </header>
+      <Hero
+        title="Chez vous, partout et ailleurs"
+        image={{
+          src: "/image/hero.jpg",
+          alt: "johannes-sejer-Xn3vcIpPi1E-unsplash 1",
+          width: 1115,
+          height: 458
+        }}
+      >
+        <p>Avec Kasa, vivez des séjours uniques dans des hébergements chaleureux, sélectionnés avec soin par nos hôtes.</p>
+      </Hero>
 
       <section className="property-listing">
         {

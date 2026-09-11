@@ -1,33 +1,3 @@
-.hero {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-
-
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-  }
-
-  h2 {
-    color: var(--main-red);
-    font-size: var(--size-xl);
-    font-weight: var(--font-weight-700);
-  }
-
-  h2,
-  p {
-    text-align: center;
-  }
-
-  img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 2rem;
-  }
-}
-
 .property-listing {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 35.5rem));
