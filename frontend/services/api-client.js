@@ -14,7 +14,7 @@ export async function apiClient(endpoint, options) {
     try {
         const { token } = options;
 
-        if (!API_BASE_URL) throw { error: 'Configuration API invalide' };
+        if (!API_BASE_URL) return { error: 'Configuration API invalide' };
 
         const headers = {
             "Content-Type": "application/json",
@@ -26,6 +26,10 @@ export async function apiClient(endpoint, options) {
             ...options,
             headers
         });
+
+        if (!response.ok) {
+            return { error: `${response.status} - ${response.statusText}` };
+        }
 
         return await response.json();
     } catch (error) {
