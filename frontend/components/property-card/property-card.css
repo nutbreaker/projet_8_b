@@ -63,7 +63,7 @@
     top: 1.6rem;
     right: 1.6rem;
 
-    &:not(:hover, :focus-visible, :disabled) {
+    &:not(.favorite-button--selected, :hover, :focus-visible, :disabled) {
         background-color: var(--white);
     }
 
@@ -80,6 +80,17 @@
     &:focus-visible {
         .favorites-icon-inside {
             fill: var(--light-orange);
+        }
+    }
+
+    &.favorite-button--selected {
+        .favorites-icon-inside {
+            fill: var(--medium-orange);
+        }
+
+        .favorites-icon-outline {
+            fill: var(--light-gray);
+            stroke: var(--light-gray);
         }
     }
 }

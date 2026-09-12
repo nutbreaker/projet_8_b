@@ -1,10 +1,13 @@
 'use client';
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import Button from "../button/button";
 import IconFavorites from "../icons/icon-favorites";
+
+import FavoritesStorage from "@/utils/favorites-storage";
 
 import './property-card.css';
 
@@ -21,10 +24,20 @@ import './property-card.css';
  * @returns {JSX.Element} a clickable card
  */
 export default function PropertyCard({ property }) {
-    // TODO implement add to favorites
+    const [isFavorite, setIsFavorite] = useState(false);
+    const favoritesStorage = new FavoritesStorage();
+
+    useEffect(() => {
+        setIsFavorite(
+            favoritesStorage.hasFavorite(property.id)
+        );
+    }, [property.id]);
+
     const onClick = () => {
-        console.log(property);
-    }
+        setIsFavorite(
+            favoritesStorage.toggleFavorite(property.id)
+        );
+    };
 
     return (
         <Link className="property-card" href={`/logement/${property.id}/${property.slug}`}>
@@ -40,9 +53,9 @@ export default function PropertyCard({ property }) {
             </figure>
 
             <Button
-                ariaLabel={`Ajouter ${property.title} aux favoris`}
+                ariaLabel={!isFavorite ? `Ajouter ${property.title} aux favoris` : `Supprimer ${property.title} des favoris`}
                 icon={<IconFavorites />}
-                className="favorite-button"
+                className={`favorite-button ${isFavorite ? 'favorite-button--selected' : ''}`}
                 onClick={onClick}
             />
         </Link>
