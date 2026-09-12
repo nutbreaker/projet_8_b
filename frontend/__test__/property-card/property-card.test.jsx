@@ -27,7 +27,7 @@ describe("PropertyCard", () => {
 
       expect(link).toHaveAttribute(
         "href",
-        `/logement/${mockProperty.id}/${mockProperty.slug}`
+        `/logement/${mockProperty.id}/${mockProperty.slug}`,
       );
     });
 
@@ -39,7 +39,9 @@ describe("PropertyCard", () => {
       expect(heading).toHaveTextContent(mockProperty.title);
 
       expect(screen.getByText(mockProperty.location)).toBeInTheDocument();
-      expect(screen.getByText(`${mockProperty.price_per_night}€`)).toBeInTheDocument();
+      expect(
+        screen.getByText(`${mockProperty.price_per_night}€`),
+      ).toBeInTheDocument();
       expect(screen.getByText(/par nuit/i)).toBeInTheDocument();
     });
 
@@ -88,7 +90,10 @@ describe("PropertyCard", () => {
     });
 
     it("should call hasFavorite with the property id on mount", () => {
-      const hasFavoriteSpy = jest.spyOn(FavoritesStorage.prototype, "hasFavorite");
+      const hasFavoriteSpy = jest.spyOn(
+        FavoritesStorage.prototype,
+        "hasFavorite",
+      );
 
       render(<PropertyCard property={mockProperty} />);
 
@@ -130,7 +135,7 @@ describe("PropertyCard", () => {
 
       expect(button).toHaveClass("favorite-button--selected");
       expect(localStorage.getItem("kasa-favorites")).toBe(
-        JSON.stringify([mockProperty.id])
+        JSON.stringify([mockProperty.id]),
       );
     });
 
@@ -152,7 +157,10 @@ describe("PropertyCard", () => {
     });
 
     it("should call toggleFavorite with property id", () => {
-      const toggleSpy = jest.spyOn(FavoritesStorage.prototype, "toggleFavorite");
+      const toggleSpy = jest.spyOn(
+        FavoritesStorage.prototype,
+        "toggleFavorite",
+      );
 
       render(<PropertyCard property={mockProperty} />);
 
@@ -166,4 +174,3 @@ describe("PropertyCard", () => {
     });
   });
 });
-

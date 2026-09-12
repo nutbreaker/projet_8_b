@@ -1,103 +1,101 @@
 .property-card {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 
-    max-width: 35.5rem;
+  max-width: 35.5rem;
 
-    text-decoration: none;
+  text-decoration: none;
 
+  border-radius: 1rem;
+
+  figure {
+    width: fit-content;
+
+    background-color: var(--white);
     border-radius: 1rem;
+  }
 
-    figure {
-        width: fit-content;
+  img {
+    width: 100%;
 
-        background-color: var(--white);
-        border-radius: 1rem;
-    }
+    object-fit: cover;
 
-    img {
-        width: 100%;
+    border-radius: 1rem 1rem 0 0;
+  }
 
-        object-fit: cover;
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
 
-        border-radius: 1rem 1rem 0 0;
-    }
+    height: 17.6rem;
 
-    figcaption {
-        display: flex;
-        flex-direction: column;
-        gap: .8rem;
+    padding-inline: 2.4rem;
+    padding-block: 1.6rem 2.4rem;
+  }
 
-        height: 17.6rem;
+  h3 {
+    color: var(--black);
+    font-size: var(--size-m);
+    font-weight: var(--font-weight-500);
+  }
 
+  address {
+    color: var(--dark-gray);
+    font: inherit;
+  }
 
-        padding-inline: 2.4rem;
-        padding-block: 1.6rem 2.4rem;
-    }
+  footer {
+    margin-top: auto;
 
-    h3 {
-        color: var(--black);
-        font-size: var(--size-m);
-        font-weight: var(--font-weight-500);
-    }
+    color: var(--dark-gray);
+  }
 
-    address {
-        color: var(--dark-gray);
-        font: inherit;
-    }
-
-    footer {
-        margin-top: auto;
-
-        color: var(--dark-gray);
-    }
-
-    b {
-        color: var(--black);
-        font-weight: var(--font-weight-500);
-    }
+  b {
+    color: var(--black);
+    font-weight: var(--font-weight-500);
+  }
 }
 
 .favorite-button {
-    position: absolute;
-    top: 1.6rem;
-    right: 1.6rem;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
 
-    &:not(.favorite-button--selected, :hover, :focus-visible, :disabled) {
-        background-color: var(--white);
-    }
+  &:not(.favorite-button--selected, :hover, :focus-visible, :disabled) {
+    background-color: var(--white);
+  }
 
+  .favorites-icon-inside {
+    fill: var(--dark-gray);
+  }
+
+  .favorites-icon-outline {
+    fill: var(--light-gray);
+    stroke: var(--light-gray);
+  }
+
+  &:hover,
+  &:focus-visible {
     .favorites-icon-inside {
-        fill: var(--dark-gray);
+      fill: var(--light-orange);
+    }
+  }
+
+  &.favorite-button--selected {
+    .favorites-icon-inside {
+      fill: var(--medium-orange);
     }
 
     .favorites-icon-outline {
-        fill: var(--light-gray);
-        stroke: var(--light-gray);
+      fill: var(--light-gray);
+      stroke: var(--light-gray);
     }
-
-    &:hover,
-    &:focus-visible {
-        .favorites-icon-inside {
-            fill: var(--light-orange);
-        }
-    }
-
-    &.favorite-button--selected {
-        .favorites-icon-inside {
-            fill: var(--medium-orange);
-        }
-
-        .favorites-icon-outline {
-            fill: var(--light-gray);
-            stroke: var(--light-gray);
-        }
-    }
+  }
 }
 
-
-@media (max-width:576px) {
-    .property-card {
-        max-width: 100%;
-    }
+@media (max-width: 576px) {
+  .property-card {
+    max-width: 100%;
+  }
 }

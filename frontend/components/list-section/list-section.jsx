@@ -1,4 +1,4 @@
-import './list-section.css';
+import "./list-section.css";
 
 /**
  * Displays a titled list of entries.
@@ -11,21 +11,28 @@ import './list-section.css';
  *
  * @returns {JSX.Element} a section containing the title and, when available, the entries list
  */
-export default function ListSection({ title, entries = [], sectionClassName, ulClassName }) {
-    const hasEntries = Boolean(entries && Array.isArray(entries) && entries.length);
+export default function ListSection({
+  title,
+  entries = [],
+  sectionClassName,
+  ulClassName,
+}) {
+  const hasEntries = Boolean(
+    entries && Array.isArray(entries) && entries.length,
+  );
 
-    return (
-        <section className={`list-section ${sectionClassName}`}>
-            <h2>{title}</h2>
+  return (
+    <section className={`list-section ${sectionClassName}`}>
+      <h2>{title}</h2>
 
-            {
-                hasEntries &&
-                <ul className={`list-section__ul ${ulClassName}`}>
-                    {
-                        entries.map((entry, index) => <li key={index}>{entry}</li>)
-                    }
-                </ul>
-            }
-        </section>
-    );
+      {hasEntries && (
+        <ul className={`list-section__ul ${ulClassName}`}>
+          {entries.map((entry, _index) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: this is a static line that won't change...
+            <li key={_index}>{entry}</li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
 }

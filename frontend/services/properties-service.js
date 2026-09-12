@@ -7,7 +7,7 @@ import { apiClient } from "./api-client";
 
 /**
  * List all the properties
- * 
+ *
  * @returns {Promise<Property[]|HTTPError>} the resolved promise or an error
  */
 export async function getProperties() {
@@ -16,9 +16,9 @@ export async function getProperties() {
 
 /**
  * Get property by id
- * 
+ *
  * @param {string} id the property id
- * 
+ *
  * @returns {Promise<Property|HTTPError>} the resolved promise or an error
  */
 export async function getProperty(id) {

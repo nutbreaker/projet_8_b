@@ -10,7 +10,7 @@
 
 /**
  * Represent the error object when an HTTP request fails.
- * 
+ *
  * @typedef {Object} HTTPError
  * @property {string} message the error message
  */
@@ -41,4 +41,3 @@
  */
 
 export {};
-

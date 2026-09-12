@@ -1,15 +1,13 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useEffect, useState } from "react";
+import FavoritesStorage from "@/utils/favorites-storage";
 import Button from "../button/button";
 import IconFavorites from "../icons/icon-favorites";
 
-import FavoritesStorage from "@/utils/favorites-storage";
-
-import './property-card.css';
+import "./property-card.css";
 
 /**
  * @typedef {import("@/types/property").Property} Property
@@ -24,40 +22,48 @@ import './property-card.css';
  * @returns {JSX.Element} a clickable card
  */
 export default function PropertyCard({ property }) {
-    const [isFavorite, setIsFavorite] = useState(false);
-    const favoritesStorage = new FavoritesStorage();
+  const [isFavorite, setIsFavorite] = useState(false);
+  const favoritesStorage = new FavoritesStorage();
 
-    useEffect(() => {
-        setIsFavorite(
-            favoritesStorage.hasFavorite(property.id)
-        );
-    }, [property.id]);
+  useEffect(() => {
+    setIsFavorite(favoritesStorage.hasFavorite(property.id));
+  }, [property.id, favoritesStorage.hasFavorite]);
 
-    const onClick = () => {
-        setIsFavorite(
-            favoritesStorage.toggleFavorite(property.id)
-        );
-    };
+  const onClick = () => {
+    setIsFavorite(favoritesStorage.toggleFavorite(property.id));
+  };
 
-    return (
-        <Link className="property-card" href={`/logement/${property.id}/${property.slug}`}>
-            <figure>
-                <Image src={`${property.cover}`} width={355} height={376} alt={`Photo de couverture ${property.title}`} />
-                <figcaption>
-                    <h3>{property.title}</h3>
-                    <address>{property.location}</address>
-                    <footer>
-                        <b>{property.price_per_night}€</b> par nuit
-                    </footer>
-                </figcaption>
-            </figure>
+  return (
+    <Link
+      className="property-card"
+      href={`/logement/${property.id}/${property.slug}`}
+    >
+      <figure>
+        <Image
+          src={`${property.cover}`}
+          width={355}
+          height={376}
+          alt={`Photo de couverture ${property.title}`}
+        />
+        <figcaption>
+          <h3>{property.title}</h3>
+          <address>{property.location}</address>
+          <footer>
+            <b>{property.price_per_night}€</b> par nuit
+          </footer>
+        </figcaption>
+      </figure>
 
-            <Button
-                ariaLabel={!isFavorite ? `Ajouter ${property.title} aux favoris` : `Supprimer ${property.title} des favoris`}
-                icon={<IconFavorites />}
-                className={`favorite-button ${isFavorite ? 'favorite-button--selected' : ''}`}
-                onClick={onClick}
-            />
-        </Link>
-    );
+      <Button
+        ariaLabel={
+          !isFavorite
+            ? `Ajouter ${property.title} aux favoris`
+            : `Supprimer ${property.title} des favoris`
+        }
+        icon={<IconFavorites />}
+        className={`favorite-button ${isFavorite ? "favorite-button--selected" : ""}`}
+        onClick={onClick}
+      />
+    </Link>
+  );
 }

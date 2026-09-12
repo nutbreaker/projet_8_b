@@ -1,18 +1,18 @@
 .container {
-    display: flex;
-    justify-content: space-between;
-    place-items: center;
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
 
-    max-width: 144rem;
-    height: 6.9rem;
+  max-width: 144rem;
+  height: 6.9rem;
 
-    margin: auto;
-    padding: .8rem 4rem;
+  margin: auto;
+  padding: 0.8rem 4rem;
 
-    color: var(--dark-gray);
-    font-family: var(--font-inter);
-    font-size: var(--size-xs);
-    font-weight: var(--font-weight-500);
+  color: var(--dark-gray);
+  font-family: var(--font-inter);
+  font-size: var(--size-xs);
+  font-weight: var(--font-weight-500);
 
-    background-color: var(--white);
+  background-color: var(--white);
 }

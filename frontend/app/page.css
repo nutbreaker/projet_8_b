@@ -65,14 +65,14 @@
   }
 }
 
-@media (max-width : 768px) {
+@media (max-width: 768px) {
   .property-listing {
     grid-template-columns: repeat(2, minmax(0, 35.5rem));
     gap: 2.4rem 1.6rem;
   }
 
   .how-it-works {
-    padding-inline: .8rem;
+    padding-inline: 0.8rem;
 
     header {
       p {
@@ -90,7 +90,7 @@
   }
 }
 
-@media (max-width:576px) {
+@media (max-width: 576px) {
   .property-listing {
     grid-template-columns: 1fr;
   }

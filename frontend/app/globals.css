@@ -10,9 +10,8 @@
   --dark-gray: #565656;
   --darkest-gray: #b6b6b60d;
 
-
   /* TYPOGRAPHY */
-  --font-inter: 'Inter', sans-serif;
+  --font-inter: "Inter", sans-serif;
 
   --size-2xl: 10rem;
   --size-xl: 3.2rem;
@@ -47,7 +46,7 @@
   outline: 0.3rem dashed var(--dark-orange);
   outline-offset: 0.3rem;
 
-  transition: outline-offset .15s ease;
+  transition: outline-offset 0.15s ease;
 }
 
 html {
@@ -90,7 +89,7 @@ main {
   margin: 0 auto;
 }
 
-@media (max-width : 768px) {
+@media (max-width: 768px) {
   main {
     margin-inline: 0;
   }

@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.API_BASE_URL || '';
+const API_BASE_URL = process.env.API_BASE_URL || "";
 
 /**
  * @typedef {import("../types/property").Options} Options
@@ -6,33 +6,33 @@ const API_BASE_URL = process.env.API_BASE_URL || '';
 
 /**
  * Generic HTTP client to request the API.
- * 
+ *
  * @param {string | URL} endpoint
  * @param {Options} options
  */
 export async function apiClient(endpoint, options) {
-    try {
-        const { token } = options;
+  try {
+    const { token } = options;
 
-        if (!API_BASE_URL) return { error: 'Configuration API invalide' };
+    if (!API_BASE_URL) return { error: "Configuration API invalide" };
 
-        const headers = {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,
-            ...(options.headers || {})
-        };
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+      ...(options.headers || {}),
+    };
 
-        const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-            ...options,
-            headers
-        });
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      ...options,
+      headers,
+    });
 
-        if (!response.ok) {
-            return { error: `${response.status} - ${response.statusText}` };
-        }
-
-        return await response.json();
-    } catch (error) {
-        return error
+    if (!response.ok) {
+      return { error: `${response.status} - ${response.statusText}` };
     }
+
+    return await response.json();
+  } catch (error) {
+    return error;
+  }
 }

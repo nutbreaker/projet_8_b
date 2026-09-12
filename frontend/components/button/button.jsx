@@ -1,4 +1,4 @@
-import './button.css';
+import "./button.css";
 
 /**
  * Custom button component which accepts an image icon.
@@ -15,30 +15,30 @@ import './button.css';
  * @returns {JSX.Element} A reusable button element.
  */
 export default function Button({
-    icon,
-    ariaLabel,
-    children,
-    className,
-    disabled = false,
-    onClick,
+  icon,
+  ariaLabel,
+  children,
+  className,
+  disabled = false,
+  onClick,
 }) {
-    const clickHandler = onClick
-        ? (event) => {
-            event.preventDefault();
-            onClick(event);
-        }
-        : undefined;
+  const clickHandler = onClick
+    ? (event) => {
+        event.preventDefault();
+        onClick(event);
+      }
+    : undefined;
 
-    return (
-        <button
-            type="button"
-            aria-label={ariaLabel}
-            className={`button ${className || ""}`}
-            disabled={disabled}
-            onClick={clickHandler}
-        >
-            {icon && <span>{icon}</span>}
-            {children}
-        </button>
-    );
+  return (
+    <button
+      type="button"
+      aria-label={ariaLabel}
+      className={`button ${className || ""}`}
+      disabled={disabled}
+      onClick={clickHandler}
+    >
+      {icon && <span>{icon}</span>}
+      {children}
+    </button>
+  );
 }

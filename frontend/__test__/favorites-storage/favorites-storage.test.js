@@ -30,7 +30,10 @@ describe("FavoritesStorage", () => {
     it("should return parsed array of favorites when valid JSON array is stored", () => {
       const storage = new FavoritesStorage();
 
-      localStorage.setItem("kasa-favorites", JSON.stringify(["fav-1", "fav-2"]));
+      localStorage.setItem(
+        "kasa-favorites",
+        JSON.stringify(["fav-1", "fav-2"]),
+      );
 
       expect(storage.getAll()).toEqual(["fav-1", "fav-2"]);
     });
@@ -69,7 +72,7 @@ describe("FavoritesStorage", () => {
       storage.save(["id-1", "id-2"]);
 
       expect(localStorage.getItem("kasa-favorites")).toBe(
-        JSON.stringify(["id-1", "id-2"])
+        JSON.stringify(["id-1", "id-2"]),
       );
     });
 
@@ -79,7 +82,7 @@ describe("FavoritesStorage", () => {
       storage.save(["id-1"]);
 
       expect(localStorage.getItem("my-custom-key")).toBe(
-        JSON.stringify(["id-1"])
+        JSON.stringify(["id-1"]),
       );
     });
 
@@ -102,7 +105,7 @@ describe("FavoritesStorage", () => {
 
       expect(storage.getAll()).toEqual(["id-1"]);
       expect(localStorage.getItem("kasa-favorites")).toBe(
-        JSON.stringify(["id-1"])
+        JSON.stringify(["id-1"]),
       );
     });
 
@@ -166,7 +169,7 @@ describe("FavoritesStorage", () => {
 
       expect(storage.getAll()).toEqual(["id-1", "id-3"]);
       expect(localStorage.getItem("kasa-favorites")).toBe(
-        JSON.stringify(["id-1", "id-3"])
+        JSON.stringify(["id-1", "id-3"]),
       );
     });
 
@@ -223,4 +226,3 @@ describe("FavoritesStorage", () => {
     });
   });
 });
-
