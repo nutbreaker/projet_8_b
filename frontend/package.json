@@ -9,7 +9,8 @@
     "lint": "biome check",
     "format": "biome format --write",
     "test": "jest --verbose",
-    "test:watch": "jest --watch --verbose"
+    "test:watch": "jest --watch --verbose",
+    "prepare": "husky"
   },
   "dependencies": {
     "next": "16.3.4",
@@ -22,6 +23,7 @@
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@types/jest": "^30.0.0",
+    "husky": "^9.1.7",
     "jest": "^30.5.1",
     "jest-environment-jsdom": "^30.5.1",
     "ts-node": "^10.9.2"
