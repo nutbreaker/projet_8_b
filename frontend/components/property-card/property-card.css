@@ -2,9 +2,11 @@
     position: relative;
     display: inline-block;
 
+    max-width: 35.5rem;
+
     text-decoration: none;
 
-    max-width: 35.5rem;
+    border-radius: 1rem;
 
     figure {
         width: fit-content;
