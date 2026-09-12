@@ -10,11 +10,15 @@
     }
 
     a {
+        display: inline-block;
+
         font-family: var(--font-inter);
         font-size: var(--size-s);
         font-weight: var(--font-weight-400);
 
         text-decoration: none;
+
+        border-radius: .5rem;
     }
 }
 
