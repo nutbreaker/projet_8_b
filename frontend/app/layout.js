@@ -3,6 +3,7 @@ import Footer from "@/components/footer/footer";
 
 import "./globals.css";
 import Header from "@/components/header/header";
+import { FavoritesProvider } from "@/context/favorites-context";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,9 +22,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${inter.variable}`}>
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <FavoritesProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </FavoritesProvider>
       </body>
     </html>
   );

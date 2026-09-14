@@ -49,7 +49,7 @@ export default function Header() {
               <Link href="/add-property">+Ajouter un logement</Link>
             </li>
             <li className="menu-items-group">
-              <Link aria-label="Favoris" href="/favorites">
+              <Link aria-label="Favoris" href="/favoris">
                 <IconFavorites />
               </Link>
 
@@ -107,7 +107,7 @@ export default function Header() {
               <Link href="/chat">Messagerie</Link>
             </li>
             <li>
-              <Link href="/favorites">Favoris</Link>
+              <Link href="/favoris">Favoris</Link>
             </li>
           </ul>
         </nav>

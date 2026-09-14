@@ -1,4 +1,9 @@
 .property-card {
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/view-transition-class */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/view-transition-name */
+  /* https://developer.mozilla.org/en-US/play?srcPrefix=%2Fen-US%2Fdocs%2FWeb%2FCSS%2FReference%2FProperties%2Fview-transition-name%2F */
+  /* https://view-transitions.chrome.dev/cards/spa/ */
+  view-transition-class: property-card;
   position: relative;
   display: inline-block;
 
@@ -7,6 +12,8 @@
   text-decoration: none;
 
   border-radius: 1rem;
+
+  animation: card-fade-zoom-in 0.3s ease backwards;
 
   figure {
     width: fit-content;
@@ -97,5 +104,37 @@
 @media (max-width: 576px) {
   .property-card {
     max-width: 100%;
+  }
+}
+
+::view-transition-group(*.property-card) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+}
+
+::view-transition-old(*.property-card) {
+  animation: card-fade-zoom-out 0.3s ease forwards;
+}
+
+@keyframes card-fade-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes card-fade-zoom-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.85);
   }
 }

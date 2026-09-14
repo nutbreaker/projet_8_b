@@ -42,13 +42,15 @@ export default function Hero({
         {children}
       </div>
 
-      <Image
-        src={image.src}
-        alt={image.alt}
-        width={image.width}
-        height={image.height}
-        className={image.className}
-      />
+      {image && (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          className={image.className}
+        />
+      )}
     </header>
   );
 }

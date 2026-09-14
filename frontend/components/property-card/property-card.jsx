@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import FavoritesStorage from "@/utils/favorites-storage";
+import { flushSync } from "react-dom";
+import { useFavorites } from "@/context/favorites-context";
 import Button from "../button/button";
 import IconFavorites from "../icons/icon-favorites";
 
@@ -14,28 +14,55 @@ import "./property-card.css";
  */
 
 /**
- * Displays a card property.
+ * Displays a clickable property card with favorite toggle support.
  *
  * @param {Object} props component props
  * @param {Property} props.property property to display
+ * @param {string} [props.className=""] optional CSS class
+ * @param {React.CSSProperties} [props.style] optional styles
+ * @param {(id: string|number, isFavorite: boolean) => void} [props.onFavoriteChange] optional callback called when favorite status toggles
  *
- * @returns {JSX.Element} a clickable card
+ * @returns {JSX.Element} a clickable card link
  */
-export default function PropertyCard({ property }) {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const favoritesStorage = new FavoritesStorage();
-
-  useEffect(() => {
-    setIsFavorite(favoritesStorage.hasFavorite(property.id));
-  }, [property.id, favoritesStorage.hasFavorite]);
-
+export default function PropertyCard({
+  property,
+  className = "",
+  style,
+  onFavoriteChange,
+}) {
+  const { hasFavorite, toggleFavorite } = useFavorites();
+  const isFavorite = hasFavorite(property.id);
   const onClick = () => {
-    setIsFavorite(favoritesStorage.toggleFavorite(property.id));
+    const nextFavoriteState = toggleFavorite(property.id);
+
+    if (!onFavoriteChange) return;
+
+    if (
+      typeof document === "undefined" ||
+      !("startViewTransition" in document)
+    ) {
+      onFavoriteChange(property.id, nextFavoriteState);
+
+      return;
+    }
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition
+    document.startViewTransition(() => {
+      // https://react.dev/reference/react-dom/flushSync
+      // forces an immediate DOM update
+      flushSync(() => {
+        onFavoriteChange(property.id, nextFavoriteState);
+      });
+    });
   };
 
   return (
     <Link
-      className="property-card"
+      style={{
+        viewTransitionName: `card-${property.id}`,
+        ...style,
+      }}
+      className={`property-card ${className}`.trim()}
       href={`/logement/${property.id}/${property.slug}`}
     >
       <figure>
