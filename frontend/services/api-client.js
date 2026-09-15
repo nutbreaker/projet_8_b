@@ -27,10 +27,6 @@ export async function apiClient(endpoint, options) {
       headers,
     });
 
-    if (!response.ok) {
-      return { error: `${response.status} - ${response.statusText}` };
-    }
-
     return await response.json();
   } catch (error) {
     return error;
