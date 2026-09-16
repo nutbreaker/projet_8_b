@@ -182,14 +182,18 @@
 }
 
 @media (max-width: 768px) {
-  button {
-    --button-position-size: 2rem;
+  .image-gallery {
+    button {
+      --button-position-size: 2rem;
+    }
   }
 }
 
 @media (max-width: 576px) {
-  button {
-    --button-position-size: 0;
-    align-self: end;
+  .image-gallery {
+    button {
+      --button-position-size: 0;
+      align-self: end;
+    }
   }
 }
