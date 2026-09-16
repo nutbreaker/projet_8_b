@@ -16,6 +16,7 @@ import "./button.css";
  */
 export default function Button({
   icon,
+  type = "button",
   ariaLabel,
   children,
   className,
@@ -31,7 +32,7 @@ export default function Button({
 
   return (
     <button
-      type="button"
+      type={type}
       aria-label={ariaLabel}
       className={`button ${className || ""}`}
       disabled={disabled}

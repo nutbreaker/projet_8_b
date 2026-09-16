@@ -1,0 +1,105 @@
+.signin {
+  align-items: center;
+  gap: 3.8rem;
+  max-width: 74.2rem;
+  height: max-content;
+
+  padding: 8rem;
+
+  border: solid 0.1rem var(--light-gray);
+  background-color: var(--white);
+  border-radius: 1rem;
+
+  .hero {
+    & > div {
+      align-items: center;
+      gap: 1rem;
+    }
+
+    p {
+      width: min(100%, 36rem);
+    }
+  }
+
+  form,
+  input,
+  .form-content,
+  .form-bottom {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form {
+    gap: 3.8rem;
+    width: min(100%, 36rem);
+  }
+
+  .form-content {
+    gap: 2.2rem;
+  }
+
+  .form-bottom {
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    font-weight: var(--font-weight-500);
+    font-size: var(--size-s);
+  }
+
+  input {
+    padding: 1.1rem 1.6rem;
+
+    font-size: var(--size-s);
+
+    border: solid 0.1rem var(--light-gray);
+    border-radius: 0.4rem;
+  }
+
+  .error {
+    color: var(--main-red);
+    text-align: center;
+  }
+
+  button {
+    width: fit-content;
+
+    margin-bottom: 1rem;
+    padding-inline: 7rem;
+
+    font-weight: var(--font-weight-500);
+  }
+
+  a {
+    color: var(--main-red);
+    text-decoration: none;
+  }
+
+  b {
+    font-weight: var(--font-weight-500);
+  }
+}
+
+@media (max-width: 768px) {
+  .signin {
+    margin-inline: 1.6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .signin {
+    margin-inline: 1.6rem;
+    padding: 3.2rem 1.6rem;
+
+    .hero {
+      h2 {
+        font-size: var(--size-l);
+      }
+    }
+  }
+}
