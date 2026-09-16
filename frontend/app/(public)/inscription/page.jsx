@@ -1,13 +1,17 @@
 "use client";
 
-import Button from "@/components/button/button";
-import "./page.css";
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
+
+import Button from "@/components/button/button";
 import Hero from "@/components/hero/hero";
+
 import { signUp } from "./actions";
 
+import "./page.css";
+
 export default function ConnexionPage() {
+  const [hasAcceptedCGU, setHasAcceptedCGU] = useState(false);
   const [state, formAction, pending] = useActionState(signUp, { error: "" });
 
   return (
@@ -51,6 +55,9 @@ export default function ConnexionPage() {
               name="cgu"
               value="1"
               defaultChecked={state.cgu}
+              onChange={(e) => {
+                setHasAcceptedCGU(e.target.checked);
+              }}
             />
             <span>
               J'accepte les&nbsp;
@@ -62,7 +69,7 @@ export default function ConnexionPage() {
         {state.error && <span className="error">{state.error}</span>}
 
         <div className="form-bottom">
-          <Button type="submit" disabled={pending}>
+          <Button type="submit" disabled={pending || !hasAcceptedCGU}>
             {!pending ? "S'inscrire" : "Inscription..."}
           </Button>
 
