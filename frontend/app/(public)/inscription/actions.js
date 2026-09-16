@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { register } from "@/services/auth-service";
 import { setSessionCookie } from "@/services/session";
+import { getRedirectCookiValue } from "@/utils/redirect-to";
 
 /**
  * Backend error messages translations.
@@ -40,5 +41,7 @@ export async function signUp(_initialState, formData) {
 
   await setSessionCookie(response?.token);
 
-  redirect("/");
+  const redirectTo = await getRedirectCookiValue();
+
+  redirect(redirectTo);
 }

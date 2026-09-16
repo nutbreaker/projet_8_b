@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { login } from "@/services/auth-service";
 import { setSessionCookie } from "@/services/session";
+import { getRedirectCookiValue } from "@/utils/redirect-to";
 
 /**
  * @typedef {Object} SignInState
@@ -45,5 +46,7 @@ export async function signIn(_initialState, formData) {
 
   await setSessionCookie(response?.token);
 
-  redirect("/");
+  const redirectTo = await getRedirectCookiValue();
+
+  redirect(redirectTo);
 }

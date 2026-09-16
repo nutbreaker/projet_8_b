@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSessionToken } from "./services/session";
 import decodeJWT from "./utils/jwt-decoder";
+import { setRedirectCookieValue } from "./utils/redirect-to";
 
 // https://nextjs.org/docs/pages/guides/authentication#optimistic-checks-with-proxy-optional
 
@@ -14,7 +15,11 @@ export default async function proxy(req) {
   const userInfo = await decodeJWT(cookie);
 
   if (isRoutePrivate && !userInfo?.id) {
-    return NextResponse.redirect(new URL("/connexion", req.nextUrl));
+    const response = NextResponse.redirect(new URL("/connexion", req.nextUrl));
+
+    setRedirectCookieValue(response.cookies, req);
+
+    return response;
   }
 
   // if (userInfo?.id  && (isRoutePrivate || path === '/')) {

@@ -46,7 +46,7 @@ export default function Header() {
         <nav className="secondary-menu" aria-label="Menu secondaire">
           <ul>
             <li>
-              <Link href="/add-property">+Ajouter un logement</Link>
+              <Link href="/ajouter-un-logement">+Ajouter un logement</Link>
             </li>
             <li className="menu-items-group">
               <Link aria-label="Favoris" href="/favoris">
@@ -60,7 +60,7 @@ export default function Header() {
                 height={5}
               />
 
-              <Link aria-label="Messagerie" href="/chat">
+              <Link aria-label="Messagerie" href="/messagerie">
                 <IconMessage />
               </Link>
             </li>
@@ -104,7 +104,7 @@ export default function Header() {
               <Link href="/a-propos">A propos</Link>
             </li>
             <li>
-              <Link href="/chat">Messagerie</Link>
+              <Link href="/messagerie">Messagerie</Link>
             </li>
             <li>
               <Link href="/favoris">Favoris</Link>
@@ -112,7 +112,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <Link className="mobile-menu__add-property" href="/add-property">
+        <Link className="mobile-menu__add-property" href="/ajouter-un-logement">
           Ajouter un logement
         </Link>
       </div>

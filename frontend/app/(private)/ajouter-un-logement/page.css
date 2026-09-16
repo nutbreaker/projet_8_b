@@ -1,0 +1,10 @@
+.add-property-page {
+  h2 {
+    color: var(--main-red);
+  }
+
+  h2,
+  p {
+    place-self: center;
+  }
+}
