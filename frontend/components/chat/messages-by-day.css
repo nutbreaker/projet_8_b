@@ -1,0 +1,42 @@
+.messages-day-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-3xs);
+
+  color: var(--dark-gray);
+  font-size: var(--size-3xs);
+
+  &::before,
+  &::after {
+    content: "";
+
+    flex: 1;
+
+    height: 0.1rem;
+
+    background-color: var(--dark-gray);
+  }
+}
+
+.messages-by-day {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  .messages {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .messages-day-divider {
+    justify-content: end;
+
+    &:after {
+      flex: 0 0 2.9rem;
+    }
+  }
+}

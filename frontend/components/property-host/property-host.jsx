@@ -17,7 +17,18 @@ import "./property-host.css";
  *
  * @returns {JSX.Element} an aside containing the host details and contact links
  */
-export default function PropertyHost({ property }) {
+export default async function PropertyHost({ property }) {
+  const {
+    host: { id = "", name = "" },
+  } = property;
+  const emailSubject = encodeURIComponent(`Concerne - ${property.title}`);
+  const emailBody = encodeURIComponent(`
+    Bonjour ${name},
+
+    Je souhaiterais avec plus de renseignement concernant ${property.title} ayant
+    pour localisation ${property.location}.
+    `);
+
   return (
     <aside className="property__host">
       <h2>Votre hôte</h2>
@@ -37,8 +48,15 @@ export default function PropertyHost({ property }) {
         </span>
       </div>
 
-      <MainRedLink href="#">Contacter l'hôte</MainRedLink>
-      <MainRedLink href="#">Envoyer un message</MainRedLink>
+      {/* Would be amazing if the property.host was containing the e-mail's host */}
+      <MainRedLink
+        href={`mailto:property.host@example.com?subject=${emailSubject}&body=${emailBody}`}
+      >
+        Contacter l'hôte
+      </MainRedLink>
+      <MainRedLink href={`/messagerie?host_id=${id}`}>
+        Envoyer un message
+      </MainRedLink>
     </aside>
   );
 }

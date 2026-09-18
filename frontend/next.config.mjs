@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "s3-eu-west-1.amazonaws.com",
         pathname: "/course.oc-static.com/**",
       },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        pathname: "/**",
+      },
     ],
   },
 };

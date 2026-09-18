@@ -1,10 +1,151 @@
 .chat-page {
-  h2 {
-    color: var(--main-red);
+  flex-direction: row;
+  gap: 0;
+
+  box-shadow: 0px 4px 14px 3px #0000000d;
+  border-radius: 1rem;
+
+  aside {
+    flex: 0 1 37.6rem;
+
+    border: solid 1px var(--light-gray);
+    border-radius: 1rem 0 0 1rem;
+    background: var(--white);
   }
 
-  h2,
-  p {
-    place-self: center;
+  section {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    flex-grow: 1;
+
+    min-width: 47%;
+
+    background: var(--light-orange);
+    border: solid 1px var(--light-gray);
+
+    border-radius: 0 1rem 1rem 0;
+  }
+}
+
+.chat-users {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.1rem 0.8rem;
+
+  & > a {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    width: fit-content;
+
+    margin: 1.6rem 0.8rem;
+    padding: 0.8rem 1.6rem;
+
+    text-decoration: none;
+    color: var(--dark-gray);
+
+    background-color: var(--light-gray);
+    border-radius: 1rem;
+  }
+
+  h2 {
+    font-size: var(--size-xl);
+    font-weight: var(--font-weight-500);
+
+    margin: 1.6rem 0.8rem;
+  }
+
+  .chat-back-messages {
+    display: none;
+  }
+}
+
+/*
+---------------------------------------------------------------------------- 
+*/
+
+.chat-container {
+  .no-discussion {
+    margin: auto;
+
+    color: var(--dark-gray);
+  }
+
+  .messages-container {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2.4rem;
+
+    padding: 4rem 4.2rem;
+  }
+
+  footer {
+    margin-top: auto;
+    padding: 2.1rem 3rem;
+
+    background: var(--white);
+    border-top: solid 1px var(--light-gray);
+  }
+}
+
+@media (max-width: 768px) {
+  .chat-page {
+    padding-inline: 0;
+
+    box-shadow: unset;
+
+    aside {
+      border: unset;
+      border-radius: unset;
+    }
+  }
+
+  .chat-page.chat--active {
+    flex-direction: column;
+
+    aside {
+      flex: 0;
+
+      h2,
+      ul,
+      .chat-back-home {
+        display: none;
+      }
+
+      .chat-back-messages {
+        display: initial;
+      }
+    }
+  }
+
+  .chat-page:not(.chat--active) {
+    aside {
+      flex: 1;
+    }
+
+    section {
+      display: none;
+    }
+  }
+
+  .chat-container {
+    border: unset;
+    border-radius: unset;
+  }
+}
+
+@media (max-width: 576px) {
+  body:has(.chat-page) {
+    gap: 0;
+  }
+
+  .chat-page {
+    .messages-container {
+      padding: 4rem 0.8rem;
+    }
   }
 }
