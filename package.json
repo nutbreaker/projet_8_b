@@ -1,0 +1,25 @@
+{
+  "name": "@nutbreaker/projet_8_b",
+  "description": "Kasa, a platform for renting apartments and houses directly from private owners.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "nutbreaker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nutbreaker/projet_8_b.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "start" : "npm run start:backend & npm run start:frontend",
+    "start:backend": "PORT=${BACKEND_PORT:-8000} npm --prefix backend start",
+    "start:frontend": "npm --prefix frontend/ run dev"
+  }
+
+}
