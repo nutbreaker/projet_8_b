@@ -10,7 +10,7 @@ if (fs.existsSync(rootEnv)) {
 const backendPort = process.env.BACKEND_PORT || "8000";
 
 process.env.API_BASE_URL =
-  process.env.API_BASE_URL?.replace("${BACKEND_PORT}", backendPort) ||
+  process.env.API_BASE_URL?.replace(/\$\{BACKEND_PORT\}/g, backendPort) ||
   `http://127.0.0.1:${backendPort}`;
 
 /** @type {import('next').NextConfig} */
