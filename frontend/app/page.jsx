@@ -4,6 +4,8 @@ import { getProperties } from "@/services/properties-service";
 
 import "./page.css";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const properties = await getProperties();
 

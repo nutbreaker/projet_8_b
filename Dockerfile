@@ -3,7 +3,8 @@ WORKDIR /kasa
 
 ENV BACKEND_PORT=8000 \
     FRONTEND_PORT=8082 \
-    JWT_SECRET=replace-me-with-a-super-dupper-secret-phrase
+    JWT_SECRET=replace-me-with-a-super-dupper-secret-phrase \
+    API_BASE_URL=http://127.0.0.1:8000
 
 COPY backend ./backend
 COPY frontend ./frontend
