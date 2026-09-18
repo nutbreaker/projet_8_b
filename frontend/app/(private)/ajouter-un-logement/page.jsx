@@ -15,7 +15,7 @@ export default async function AddPropertyPage() {
       >
         <h2>Autorisations insuffisantes</h2>
         <p>
-          Vous n'avez malheureusement pas lautorisation d'ajouter un nouveau
+          Vous n'avez malheureusement pas l'autorisation d'ajouter un nouveau
           logement.
         </p>
       </div>
