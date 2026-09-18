@@ -64,53 +64,48 @@ N/A
 
 ### 4. Local Development Setup
 
-#### A. Backend Setup
+This project uses npm workspaces, that means you can install dependencies and run both the backend and frontend simultaneously directly from the project root:
 
-1. Open the `backend` directory
-
-   ```bash
-   cd backend
-   ```
-
-2. Install the dependencies
+1. **Set up environment variables:**
 
    ```bash
-   npm install
+   cp .env.example .env
    ```
 
-3. Start the backend developpement server
-
-   ```bash
-   PORT=8000 npm start
-   ```
-
-   The `backend` API will run at http://localhost:8000
-
-_There is an alternative which allows to run the `backend` from the project root folder: `PORT=8000 npm --prefix backend/ start`_
-
-#### B. Frontend Setup
-
-1. Open the `frontend` directory
-
-   ```bash
-   cd frontend
-   ```
-
-2. Install the dependencies
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-3. Start the backend developpement server
+   *(This installs dependencies for all workspaces: root, backend, and frontend).*
+
+3. **Start both services:**
 
    ```bash
-   npm run dev
+   npm start
    ```
 
-   The `frontend` application will be available at http://localhost:3000
+   - The **frontend** will be available at: `http://localhost:3000`
+   - The **backend** API will run at: `http://localhost:8000`
 
-_There is an alternative which allows to run the `frontend` from the project root folder: `npm --prefix frontend/ run dev`_
+---
+
+#### Running services individually (optional)
+
+You can still run each service independently from the project root:
+
+- **Backend only:**
+  
+  ```bash
+  npm run start:backend
+  ```
+
+- **Frontend only:**
+  
+  ```bash
+  npm run dev:frontend
+  ```
 
 ## Project Architecture
 
