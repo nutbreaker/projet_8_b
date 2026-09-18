@@ -110,7 +110,27 @@ You can still run each service independently from the project root:
 ## Project Architecture
 
 ```text
-N/A
+projet_8_b/
+├── backend/                  # Node.js + Express REST API (Git submodule)
+│   ├── bin/                  # Server entrypoint (HTTP server setup)
+│   ├── controllers/          # API request controllers
+│   ├── data/                 # SQLite database & data storage
+│   ├── middlewares/          # Authentication & database middlewares
+│   ├── public/               # Uploaded images & static files
+│   ├── routes/               # Express API route endpoints
+│   └── services/             # Business logic & JWT services
+├── frontend/                 # Next.js frontend application
+│   ├── __test__/             # Unit and integration test suites
+│   ├── app/                  # Next.js App Router pages, layouts, and routes
+│   ├── components/           # Reusable React UI components
+│   ├── context/              # React contexts
+│   ├── services/             # API client, auth & session services
+│   ├── types/                # JSDoc type definitions
+│   ├── utils/                # Utility and helper functions
+│   └── proxy.js              # Route protection proxy
+├── docker-compose.yml        # Docker Compose configuration
+├── Dockerfile                # Multi-service Docker container definition
+└── package.json              # Root npm workspaces configuration
 ```
 
 ## Useful Commands
