@@ -1,3 +1,18 @@
+import fs from "node:fs";
+import path from "node:path";
+
+const rootEnv = path.resolve(process.cwd(), "../.env");
+
+if (fs.existsSync(rootEnv)) {
+  process.loadEnvFile(rootEnv);
+}
+
+const backendPort = process.env.BACKEND_PORT || "8000";
+
+process.env.API_BASE_URL =
+  process.env.API_BASE_URL?.replace("${BACKEND_PORT}", backendPort) ||
+  `http://127.0.0.1:${backendPort}`;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
