@@ -17,9 +17,8 @@
     "frontend"
   ],
   "scripts": {
-    "start" : "npm run start:backend & npm run dev:frontend",
+    "start": "npm run start:backend & npm run dev:frontend",
     "start:backend": "PORT=${BACKEND_PORT:-8000} npm --prefix backend start",
     "dev:frontend": "npm --prefix frontend/ run dev"
   }
-
 }
