@@ -50,6 +50,7 @@ export default function AboutPage() {
           alt="about mission"
           width={494}
           height={458}
+          quality={65}
         />
 
         <p>

@@ -49,6 +49,8 @@ export default function Hero({
           width={image.width}
           height={image.height}
           className={image.className}
+          quality={65}
+          priority
         />
       )}
     </header>

@@ -16,6 +16,7 @@ process.env.API_BASE_URL =
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    qualities: [25, 50, 65, 75, 100],
     remotePatterns: [
       {
         protocol: "https",
